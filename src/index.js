@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter ,Routes,Route} from "react-router-dom";
+import CoinDetails from './coin-details'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+     <BrowserRouter>
+     <Routes>
+     <Route path="/" element={<App />} />
+     <Route path="details" element={<CoinDetails />}>
+      <Route path=":id" element={<CoinDetails />} />
+    </Route>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
